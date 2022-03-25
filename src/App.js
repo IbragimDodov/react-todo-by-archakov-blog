@@ -1,6 +1,11 @@
 import React from 'react';
+
 import List from './components/List/List';
 import listSvg from './assets/img/list.svg';
+import AddButtonList from './components/AddButtonList/AddButtonList';
+
+import db from './assets/db.json';
+
 // import './App.css';
 
 function App() {
@@ -22,13 +27,15 @@ function App() {
           {
             color: 'blue',
             name: 'Фронтенд',
-            active: true
+            active: true,
           },
           {
             color: 'pink',
-            name: 'Фильмы и сериалы'
+            name: 'Фильмы и сериалы',
           },
-        ]} />
+        ]}
+        isRemovable />
+        <AddButtonList colors={db.colors}/>
       </div>
       <div className="todo__tasks">
 
