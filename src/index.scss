@@ -40,11 +40,30 @@
   border: 0;
   padding: 10px 20px;
   cursor: pointer;
+  font-size: 14px;
+
   &:hover {
     background: darken(#4dd599, 10%);
   }
+
   &:active {
     background: darken(#4dd599, 15%);
+  }
+
+  &:disabled {
+    background: #d8d8d8;
+  }
+
+  &--grey {
+    background: #dbddde;
+
+    &:hover {
+      background: darken(#dbddde, 10%);
+    }
+
+    &:active {
+      background: darken(#dbddde, 16%);
+    }
   }
 }
 
