@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 import List from './components/List/List';
 import AddButtonList from './components/AddButtonList/AddButtonList';
@@ -80,11 +81,23 @@ function App() {
         <AddButtonList onAdd={onAddList} colors={colors}/>
       </div>
       <div className="todo__tasks">
-        {lists && activeItem && (<Tasks
-          list={activeItem}
-          onEditTitle={onEditListTitle}
-          onAddTask={onAddTask}
-          />)}
+        <Route>
+          {lists && 
+            lists.map(list => (
+              <Tasks
+                list={list}
+                onAddTask={onAddTask}
+                onEditTitle={onEditListTitle}
+                withoutEmpty/>
+            ))}
+        </Route>
+        <Route path='/lists/:id'>
+          {lists && activeItem && (<Tasks
+            list={activeItem}
+            onEditTitle={onEditListTitle}
+            onAddTask={onAddTask}
+            />)}
+        </Route>
       </div>
     </div>
   );
